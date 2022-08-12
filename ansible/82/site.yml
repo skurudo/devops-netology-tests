@@ -1,13 +1,13 @@
 ---
-- name: Install Clickhouse
-  hosts: clickhouse
-  handlers:
+ - name: Install Clickhouse
+   hosts: clickhouse
+   handlers:
     - name: Start clickhouse service
       become: true
       ansible.builtin.service:
         name: clickhouse-server
         state: restarted
-  tasks:
+   tasks:
     - block:
         - name: Get clickhouse distrib
           ansible.builtin.get_url:
@@ -21,7 +21,7 @@
             dest: "./clickhouse-common-static-{{ clickhouse_version }}.rpm"
     - name: Install clickhouse packages
       become: true
-      ansible.builtin.yum:
+      ansible.builtin.command:
         name:
           - clickhouse-common-static-{{ clickhouse_version }}.rpm
           - clickhouse-client-{{ clickhouse_version }}.rpm
