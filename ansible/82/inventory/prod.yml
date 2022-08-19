@@ -1,13 +1,12 @@
 ---
 clickhouse:
   hosts:
-    clickhouse-01-clickhouse-client:
-      ansible_host: 172.17.0.2
-clickhouse:
+    clickhouse-01:
+      ansible_host: 84.201.154.122
+      ansible_ssh_user: vagrant
+      
+vector:
   hosts:
-    clickhouse-02-clickhouse-server:
-      ansible_host: 172.17.0.3
-clickhouse:
-  hosts:
-    clickhouse-03-clickhouse-common-static:
-      ansible_host: 172.17.0.4
+    clickhouse-02:
+      ansible_host: 84.252.141.147
+      ansible_ssh_user: vagrant
